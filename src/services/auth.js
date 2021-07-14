@@ -1,6 +1,10 @@
 export const getToken = () => {
   const appStorage = localStorage.getItem("app");
 
-  const { token } = JSON.parse(appStorage);
+  let token = "";
+
+  if (appStorage) {
+    token = JSON.parse(appStorage).token;
+  }
   return token;
 };

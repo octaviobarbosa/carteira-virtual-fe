@@ -155,6 +155,7 @@ const Categories = () => {
             colorScheme="blue"
             variant="outline"
             isRound
+            size="sm"
             color="primary.100"
             aria-label="Add Transação"
             icon={<AddIcon />}

@@ -7,14 +7,12 @@ import {
 } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Flex,
   IconButton,
   Table,
   Tbody,
   Td,
   Text,
-  Tfoot,
   Th,
   Thead,
   Tr,

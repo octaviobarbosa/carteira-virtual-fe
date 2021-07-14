@@ -2,15 +2,15 @@ import { Select } from "@chakra-ui/react";
 import React, { useCallback, useEffect, useState } from "react";
 import api from "../../services/api";
 
-const CategorySelect = ({ ...props }) => {
-  const [categories, setCategories] = useState([]);
+const UserSelect = ({ ...props }) => {
+  const [users, setUsers] = useState([]);
 
   const getCategories = useCallback(async () => {
     try {
-      const responseApi = await api.get("/categories");
+      const responseApi = await api.get("/users");
 
       if (responseApi.status === 200) {
-        setCategories(responseApi.data);
+        setUsers(responseApi.data);
       }
     } catch (error) {
       // toast.error(error, "Error");
@@ -22,14 +22,14 @@ const CategorySelect = ({ ...props }) => {
     getCategories();
   }, [getCategories]);
   return (
-    <Select placeholder="Categoria" size="md" color="text.100" {...props}>
-      {categories.map((category) => (
-        <option key={category.id} value={category.id}>
-          {category.name}
+    <Select placeholder="Usuário" size="md" color="text.100" {...props}>
+      {users.map((user) => (
+        <option key={user.id} value={user.id}>
+          {user.name}
         </option>
       ))}
     </Select>
   );
 };
 
-export default CategorySelect;
+export default UserSelect;
