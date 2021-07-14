@@ -8,6 +8,7 @@ import {
 import {
   Box,
   Button,
+  Center,
   Flex,
   IconButton,
   Input,
@@ -221,6 +222,7 @@ const Transactions = () => {
                 <Th>Descrição</Th>
                 <Th isNumeric>Valor</Th>
                 <Th>Categoria</Th>
+                <Th>Enviado/Recebido</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -228,15 +230,25 @@ const Transactions = () => {
                 transactions.map((item) => (
                   <Tr key={item.id}>
                     <Td>
-                      {item.operation === "I" ? (
-                        <ArrowDownIcon color="green" />
-                      ) : (
-                        <ArrowUpIcon color="red" />
-                      )}
+                      <Center>
+                        {item.operation === "I" ? (
+                          <ArrowDownIcon color="green" />
+                        ) : (
+                          <ArrowUpIcon color="red" />
+                        )}
+                      </Center>
                     </Td>
                     <Td>{item.description}</Td>
                     <Td isNumeric>{formatToBRL(item.value)}</Td>
                     <Td>{item?.category?.name}</Td>
+                    <Td>
+                      {item?.to_user_id
+                        ? `Enviado para ${item.to_user.name}`
+                        : ""}
+                      {item?.from_user_id
+                        ? `Recebido de ${item.from_user.name}`
+                        : ""}
+                    </Td>
                   </Tr>
                 ))}
             </Tbody>
