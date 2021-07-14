@@ -17,6 +17,11 @@ const PageHeader = ({ children, ...props }) => {
 
   const history = useHistory();
 
+  const handleLogout = () => {
+    localStorage.removeItem("app");
+    history.push("/");
+  };
+
   return (
     <Box
       as="header"
@@ -67,7 +72,7 @@ const PageHeader = ({ children, ...props }) => {
                 size="sm"
                 name={user.name}
                 cursor="pointer"
-                onClick={() => alert("logout")}
+                onClick={handleLogout}
               />
             </Stack>
           </Tooltip>
