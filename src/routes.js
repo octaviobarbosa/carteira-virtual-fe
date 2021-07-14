@@ -1,10 +1,13 @@
 import React from "react";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
 import Layout from "./pages/layout";
 import Login from "./pages/Login";
-import Transactions from "./pages/Transactions";
 import CreateUser from "./pages/CreateUser";
-import jwtDecode from "jwt-decode";
+import Transactions from "./pages/Transactions";
+import Categories from "./pages/Categories";
+import Payments from "./pages/Payments";
 import { getToken } from "./services/auth";
 
 const isAuthenticated = () => {
@@ -70,22 +73,24 @@ const Routes = () => (
 
       <PrivateRoute
         exact
-        path="/Transactions"
-        title="Transactions"
-        // render={(props) => (
-        //   <Layout>
-        //     <Home />
-        //   </Layout>
-        // )}
+        path="/transactions"
+        title="Transações"
         component={Transactions}
       />
 
-      {/* <PrivateRoute
+      <PrivateRoute
         exact
-        path="/doctor-profile"
-        title="Doctor Profile"
-        component={DoctorProfile}
-      /> */}
+        path="/categories"
+        title="Categorias"
+        component={Categories}
+      />
+
+      <PrivateRoute
+        exact
+        path="/payments"
+        title="Pagamentos"
+        component={Payments}
+      />
     </Switch>
   </HashRouter>
 );
