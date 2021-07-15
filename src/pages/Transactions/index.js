@@ -169,29 +169,11 @@ const Transactions = () => {
       <PageHeader />
 
       <Box as="main" w="1100px" pt="15px">
-        <Text fontWeight={700} mb={5} fontSize="3xl">
-          Transações
-        </Text>
-
         <Flex justifyContent="space-between">
-          <Card>
-            <Text fontWeight={500}>Entradas:</Text>
-            <Text fontWeight={500} ml={2}>
-              {formatToBRL(balance.income)}
-            </Text>
-          </Card>
-          <Card>
-            <Text fontWeight={500}>Saídas:</Text>
-            <Text fontWeight={500} ml={2}>
-              {formatToBRL(balance.outcome)}
-            </Text>
-          </Card>
-          <Card>
-            <Text fontWeight={500}>Líquido:</Text>
-            <Text fontWeight={500} ml={2}>
-              {formatToBRL(balance.balance)}
-            </Text>
-          </Card>
+          <Text fontWeight={700} mb={5} fontSize="3xl">
+            Transações
+          </Text>
+
           <Box>
             <Tooltip
               label={`Adicionar/Enviar Transação`}
@@ -212,6 +194,27 @@ const Transactions = () => {
               Histórico
             </Button>
           </Box>
+        </Flex>
+
+        <Flex justifyContent="space-between">
+          <Card>
+            <Text fontWeight={500}>Entradas:</Text>
+            <Text fontWeight={500} ml={2}>
+              {formatToBRL(balance.income)}
+            </Text>
+          </Card>
+          <Card>
+            <Text fontWeight={500}>Saídas:</Text>
+            <Text fontWeight={500} ml={2}>
+              {formatToBRL(balance.outcome)}
+            </Text>
+          </Card>
+          <Card>
+            <Text fontWeight={500}>Líquido:</Text>
+            <Text fontWeight={500} ml={2}>
+              {formatToBRL(balance.balance)}
+            </Text>
+          </Card>
         </Flex>
 
         <Flex justifyContent="center" mt={5}>
