@@ -9,6 +9,7 @@ import {
   Box,
   Button,
   Center,
+  Checkbox,
   Flex,
   IconButton,
   Input,
@@ -48,6 +49,7 @@ const Transactions = () => {
 
   const [transaction, setTransaction] = useState({});
   const [isOpen, setIsOpen] = useState(false);
+  const [isFriend, setIsFriend] = useState(false);
 
   const [history, setHistory] = useState({
     isOpen: false,
@@ -65,7 +67,9 @@ const Transactions = () => {
 
   const getTransactions = useCallback(async () => {
     try {
-      const responseApi = await api.get("/transactions");
+      const responseApi = await api.get(
+        `/transactions${isFriend ? "/friends-transactions" : ""}`,
+      );
       if (responseApi.status === 200) {
         setTransactions(responseApi.data);
       }
@@ -78,7 +82,7 @@ const Transactions = () => {
       toast.error("Erro ao processar requisição", "Error");
     }
     // eslint-disable-next-line
-  }, []);
+  }, [isFriend]);
 
   useEffect(() => {
     getTransactions();
@@ -90,29 +94,37 @@ const Transactions = () => {
   };
 
   const handleSave = async () => {
+    let errorMessage = "";
+
     try {
-      if (transaction.operation !== "E") {
-        const responseApi = await api.post(`/transactions/`, transaction);
+      if (transaction.operation === "E") {
+        const responseApi = await api
+          .post(`/transactions/send`, transaction)
+          .catch((err) => {
+            errorMessage = err.response.data.message;
+          });
 
         if (responseApi.status === 201) {
           getTransactions();
-          toast.success("Transação inserida!", "Sucesso");
+          toast.success("Transação enviada!", "Sucesso");
           setIsOpen(false);
           setTransaction({});
         }
+        return;
       }
 
-      // send
-      const responseApi = await api.post(`/transactions/send`, transaction);
+      const responseApi = await api.post(`/transactions/`, transaction);
 
       if (responseApi.status === 201) {
         getTransactions();
-        toast.success("Transação enviada!", "Sucesso");
+        toast.success("Transação inserida!", "Sucesso");
         setIsOpen(false);
         setTransaction({});
       }
-    } catch (error) {
-      toast.error("Erro ao savar", "Error");
+    } catch (err) {
+      if (errorMessage) {
+        toast.error(errorMessage, "Error");
+      }
     }
   };
 
@@ -175,6 +187,17 @@ const Transactions = () => {
           </Text>
 
           <Box>
+            <Checkbox
+              mt={1}
+              mr={2}
+              value={isFriend}
+              onChange={(e) => {
+                setIsFriend(e.target.checked);
+              }}
+            >
+              Apenas enviadas/recebidas
+            </Checkbox>
+
             <Tooltip
               label={`Adicionar/Enviar Transação`}
               aria-label="add tooltip"
@@ -190,7 +213,7 @@ const Transactions = () => {
                 onClick={handleNew}
               />
             </Tooltip>
-            <Button colorScheme="blue" ml={2} onClick={handleHistory}>
+            <Button colorScheme="blue" size="sm" ml={2} onClick={handleHistory}>
               Histórico
             </Button>
           </Box>
