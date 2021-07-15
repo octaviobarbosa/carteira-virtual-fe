@@ -38,7 +38,7 @@ const PageHeader = ({ children, ...props }) => {
             ml={2}
             onClick={() => history.push("/transactions")}
           >
-            <Text fontWeight={500} color="secondary.100">
+            <Text fontWeight={500} color="white.100">
               Transações
             </Text>
           </Button>
@@ -48,7 +48,7 @@ const PageHeader = ({ children, ...props }) => {
             ml={2}
             onClick={() => history.push("/categories")}
           >
-            <Text fontWeight={500} color="secondary.100">
+            <Text fontWeight={500} color="white.100">
               Categorias
             </Text>
           </Button>
@@ -57,7 +57,7 @@ const PageHeader = ({ children, ...props }) => {
             ml={2}
             onClick={() => history.push("/payments")}
           >
-            <Text fontWeight={500} color="secondary.100">
+            <Text fontWeight={500} color="white.100">
               Pagamentos
             </Text>
           </Button>
