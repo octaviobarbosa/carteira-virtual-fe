@@ -120,6 +120,7 @@ const Payments = () => {
       type: "P",
       due_date: moment(Date.now()).format("YYYY-MM-DD"),
       is_automatic_debt: false,
+      repeat: 1,
     });
     setAction({
       type: "new",
@@ -424,7 +425,7 @@ const Payments = () => {
                 mb="15px"
                 type="date"
                 color="text.100"
-                value={payment.due_date}
+                value={moment(payment.due_date).format("YYYY-MM-DD")}
                 onChange={(e) => {
                   const due_date = moment(e.target.value).format("YYYY-MM-DD");
                   setPayment({
@@ -454,7 +455,7 @@ const Payments = () => {
               </Text>
               <NumberInput
                 defaultValue={0}
-                min={0}
+                min={1}
                 onChange={(value) => {
                   setPayment({ ...payment, repeat: value });
                 }}

@@ -109,7 +109,7 @@ const CreateUser = () => {
           </Box>
           <Box>
             <Text fontSize="24px" mb="15px" color="text.100">
-              Ciar Usuário
+              Criar Usuário
             </Text>
           </Box>
         </Grid>

@@ -34,9 +34,10 @@ const PageHeader = ({ children, ...props }) => {
       <Flex justifyContent="space-between">
         <Flex justifyContent="center" alignItems="center">
           <Button
-            variant="unstyled"
+            variant="outline"
             ml={2}
             onClick={() => history.push("/transactions")}
+            _hover={{ bg: "primary.150", color: "#FFF " }}
           >
             <Text fontWeight={500} color="white.100">
               Transações
@@ -44,18 +45,20 @@ const PageHeader = ({ children, ...props }) => {
           </Button>
 
           <Button
-            variant="unstyled"
+            variant="outline"
             ml={2}
             onClick={() => history.push("/categories")}
+            _hover={{ bg: "primary.150", color: "#FFF " }}
           >
             <Text fontWeight={500} color="white.100">
               Categorias
             </Text>
           </Button>
           <Button
-            variant="unstyled"
+            variant="outline"
             ml={2}
             onClick={() => history.push("/payments")}
+            _hover={{ bg: "primary.150", color: "#FFF " }}
           >
             <Text fontWeight={500} color="white.100">
               Pagamentos

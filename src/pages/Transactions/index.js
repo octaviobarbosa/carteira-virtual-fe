@@ -148,6 +148,22 @@ const Transactions = () => {
       ...history,
       isOpen: true,
     });
+
+    // set date
+    const date = moment(Date.now()).toDate();
+
+    const start = new Date(date.getFullYear(), date.getMonth(), 1);
+    const diaMaxMes = new Date(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      0,
+    ).getDate();
+    const end = new Date(date.getFullYear(), date.getMonth(), diaMaxMes);
+
+    setFilter({
+      start: moment(start).format("YYYY-MM-DD"),
+      end: moment(end).format("YYYY-MM-DD"),
+    });
   };
 
   const handleCloseHistory = () => {
