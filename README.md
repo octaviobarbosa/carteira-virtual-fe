@@ -6,13 +6,21 @@ Projeto desenvolvido como complemente do projeto Carteira Virtual que pode ser b
 
 No diretório do projeto, para instalar as dependências execute:
 
-`npm install` or `yarn`
+```bash
+npm install
+# ou
+yarn
+```
 
 Duplique o arquvo ".env.example", renomear para .env e inserir o endereço do backend ex.: [http://localhost:3333](http://localhost:3333)
 
 Para executar o projeto utilizar o comando:
 
-`npm run start` or `yarn start`
+```bash
+npm run start
+# ou
+yarn start
+```
 
 ---
 
