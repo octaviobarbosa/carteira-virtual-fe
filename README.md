@@ -12,7 +12,7 @@ npm install
 yarn
 ```
 
-Duplique o arquvo ".env.example", renomear para .env e inserir o endereço do backend ex.: [http://localhost:3333](http://localhost:3333)
+Duplicar o arquvo ".env.example", renomear para .env e inserir o endereço do backend ex.: [http://localhost:3333](http://localhost:3333)
 
 Para executar o projeto utilizar o comando:
 
