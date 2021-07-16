@@ -13,3 +13,7 @@ Duplique o arquvo ".env.example", renomear para .env e inserir o endereço do ba
 Para executar o projeto utilizar o comando:
 
 `npm run start` or `yarn start`
+
+---
+
+Feito com ♥ by Octávio Barbosa [Linkedin](https://www.linkedin.com/in/octaviobarbosa/) | [Github](https://github.com/octaviobarbosa)
