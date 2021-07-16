@@ -1,6 +1,6 @@
 # Carteira Virtual Frontend
 
-Projeto desenvolvido como complemente do projeto Carteira Virtual que pode ser acessado [aqui](https://github.com/octaviobarbosa/carteira-virtual).
+Projeto desenvolvido como complemente do projeto Carteira Virtual que pode ser baixado/clonado no repositório [octaviobarbosa/carteira-virtual](https://github.com/octaviobarbosa/carteira-virtual).
 
 ## Como executar
 
